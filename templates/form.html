@@ -1,0 +1,20 @@
+<!doctype html>
+<title>CurveFitter</title>
+
+<h1>Welcome to Curve Fitter</h1>
+
+<form action="" method=get>
+    <p>Please enter the equation to fit <input required type=text size=20 name=expression></p>
+    <p>What is the x-variable? <input required type=text size=5 value=x name=xvariable></p>
+    <p>Observed x-values <input required type=text size=20 name=xvalues></p>
+    <p>Observed y-values <input required type=text size=20 name=yvalues></p>
+    <p>Initial guess values (optional) <input type=text size= 20 name=p0></p>
+    <p><input type=submit value=Enter></p>
+</form>
+{% if popt %}
+    <p>Parameter and optimized value</p>
+    {% for par, value in popt.iteritems() %}
+        <p>{{ par }}: {{ value }}</p>
+    {% endfor %}
+{% endif %} 
+
